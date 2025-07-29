@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment ReXcZ</title>
+  <link rel="icon" href="logo.png" type="image/png" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik&family=Poppins:wght@400;600&display=swap');
+
+    :root {
+      --bg: linear-gradient(135deg, #0e0e1a, #1a1a2e);
+      --text: #fff;
+      --accent: #00f7ff;
+      --card: rgba(24, 24, 40, 0.6);
+      --shadow: 0 0 20px #00f7ff80;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 80px auto 40px;
+      background: var(--card);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+
+    .note {
+      text-align: center;
+      font-size: 0.9em;
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+
+    .accordion {
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .accordion-btn {
+      background-color: #232340;
+      color: white;
+      padding: 15px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .accordion-btn:hover {
+      background-color: #2f2f5a;
+    }
+
+    .accordion-content {
+      background-color: #1a1a2e;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      padding: 0 15px;
+    }
+
+    .accordion-content p {
+      margin: 10px 0;
+    }
+
+    .copy-btn {
+      background-color: var(--accent);
+      color: #000;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .qris {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .qris h3 {
+      color: #ff5fff;
+      text-shadow: 0 0 10px #ff5fff;
+    }
+
+    .qris img {
+      width: 200px;
+      border-radius: 10px;
+      margin: 15px 0;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .qris img:hover {
+      transform: scale(1.05);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal img {
+      max-width: 90%;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+
+    #toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--accent);
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      box-shadow: 0 0 15px #00f7ff80;
+      display: none;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="particles-js"></canvas>
+
+<audio id="click-sound" src="https://files.catbox.moe/uhug9z.mp3" preload="auto"></audio>
+
+<a href="https://wa.me/6282130224265?text=Halo%20kak,%20saya%20sudah%20melakukan%20pembayaran." target="_blank" style="position: fixed; bottom: 20px; left: 20px; z-index: 999;">
+  <img src="https://img.icons8.com/fluency/48/000000/whatsapp.png" alt="WhatsApp" style="width: 50px; height: 50px;">
+</a>
+
+<div class="container">
+  <h1>PAYMENT REXXA</h1>
+  <p class="note">Jangan lupa screenshot bukti pembayaran</p>
+
+  <div class="accordion">
+    <button class="accordion-btn">Dana <span>▼</span></button>
+    <div class="accordion-content">
+      <p><strong>Nomor Dana:</strong> <span id="danaNumber">087823358993</span></p>
+      <p><strong>Atas Nama:</strong> MUXXXAD AXXUL WAXXD</p>
+      <button class="copy-btn" onclick="copyToClipboard('danaNumber')">Salin Nomor</button>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn">Gopay <span>▼</span></button>
+    <div class="accordion-content">
+      <p><strong>Nomor:</strong> <span id="gopayNumber">087823358993</span></p>
+      <p><strong>Atas Nama:</strong> WAXXD</p>
+      <button class="copy-btn" onclick="copyToClipboard('gopayNumber')">Salin Nomor</button>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn">ShopeePay <span>▼</span></button>
+    <div class="accordion-content">
+      <p><strong>Nomor:</strong> <span id="shopeepayNumber">087823358993</span></p>
+      <p><strong>Atas Nama:</strong> MUXXXAD AXXUL WAXXD</p>
+      <button class="copy-btn" onclick="copyToClipboard('shopeepayNumber')">Salin Nomor</button>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn">SeaBank <span>▼</span></button>
+    <div class="accordion-content">
+      <p><strong>No Rekening:</strong> <span id="seabankNumber">901508192948</span></p>
+      <p><strong>Atas Nama:</strong> MUXXXAD AXXUL WAXXD</p>
+      <button class="copy-btn" onclick="copyToClipboard('seabankNumber')">Salin Nomor</button>
+    </div>
+  </div>
+
+  <div class="qris">
+    <h3>QRIS (All Payment)</h3>
+    <img src="https://files.catbox.moe/vczuaw.jpg" alt="QRIS" onclick="openModal()">
+    <p>(Klik gambar untuk menampilkan QRIS)</p>
+  </div>
+</div>
+
+<div class="modal" id="modalQR" onclick="closeModal()">
+  <img src="https://files.catbox.moe/el615b.png" alt="QRIS Besar">
+</div>
+
+<div id="toast">Disalin!</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+  particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/demo/particles.json');
+
+  const accButtons = document.querySelectorAll('.accordion-btn');
+  accButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      const content = btn.nextElementSibling;
+      document.getElementById("click-sound").play();
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        document.querySelectorAll('.accordion-content').forEach(el => el.style.maxHeight = null);
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
+
+  function copyToClipboard(id) {
+    const text = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      showToast("Nomor berhasil disalin!");
+    });
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.style.display = "block";
+    setTimeout(() => {
+      toast.style.display = "none";
+    }, 2500);
+  }
+
+  function openModal() {
+    document.getElementById("modalQR").style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("modalQR").style.display = "none";
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rexxa - Store</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f172a;
+      color: white;
+    }
+    header {
+      background-color: #1e293b;
+      padding: 1rem 1.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .banner {
+      width: 100%;
+      height: 168px;
+      object-fit: cover;
+      display: block;
+    }
+    .product-grid {
+      display: grid;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .product {
+      background-color: #1e293b;
+      border-radius: 15px;
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+    .product img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .product h3 {
+      margin-top: 0.7rem;
+      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+    }
+    .product p {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      margin: 0.3rem 0;
+    }
+    .price {
+      font-weight: bold;
+      color: white;
+      margin: 0.5rem 0;
+    }
+    .product .actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .product button, .product a {
+      padding: 0.4rem 1rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-blue { background-color: #3b82f6; color: white; }
+    .btn-green { background-color: #10b981; color: white; }
+    .btn-cyan { background-color: #8b00ff; color: white; }
+
+    .details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+    .details ul {
+      padding-left: 1.2rem;
+    }
+    .details li {
+      margin-bottom: 0.3rem;
+    }
+    .details.show {
+      max-height: 500px;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>Rexxa - Store</header>
+  <img src="https://files.catbox.moe/ucxumv.jpg" alt="Banner" class="banner" />
+
+  <!-- Musik Latar -->
+  <audio controls style="width: 455px; height: 20px;">
+  <source src="https://files.catbox.moe/9a7h22.mp3" type="audio/mp3">
+</audio>
+  
+  <!-- PRODUK WEBSITE -->
+  <div class="product-grid">
+    <div class="product" data-aos="fade-up">
+      <img src="https://files.catbox.moe/369zcw.jpg" alt="Panel Pterodactyl">
+      <h3>Website Payment V2</h3>
+      <p>Buy Script web di rexxa dengan harga terjangkau.</p>
+      <div class="price">Rp 25.000</div>
+      <div class="actions">
+        <button class="btn-blue" onclick="toggleDetails(this)">Read More</button>
+        <a class="btn-cyan" href="/payment" target="_blank">Preview</a>
+        <a class="btn-green" href="https://wa.me/6282130224265?text=Bang+Pengen+Buy+Website+Payment+V2" target="_blank">Order Now</a>
+      </div>
+      <div class="details">
+        <ul>
+          <li>Free install / pasang</li>
+          <li>Free rename website</li>
+          <li>Full online permanent</li>
+          <li>Free Domain (boleh request nama domain)</li>
+          <li>Tampilan keren dan elegan</li>
+          <li>Bisa run di Github</li>
+          <li>Bisa run di Vercel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="product-grid">
+    <div class="product" data-aos="fade-up">
+      <img src="https://files.catbox.moe/8n2xk9.jpg" alt="Panel Pterodactyl">
+      <h3>Website Payment V1</h3>
+      <p>Buy Script web di rexxa dengan harga terjangkau.</p>
+      <div class="price">Rp 20.000</div>
+      <div class="actions">
+        <button class="btn-blue" onclick="toggleDetails(this)">Read More</button>
+        <a class="btn-cyan" href="/paymentV1" target="_blank">Preview</a>
+        <a class="btn-green" href="https://wa.me/6282130224265?text=Bang+Pengen+Buy+Website+Payment+V1" target="_blank">Order Now</a>
+      </div>
+      <div class="details">
+        <ul>
+          <li>Free install / pasang</li>
+          <li>Free rename website</li>
+          <li>Full online permanent</li>
+          <li>Free Domain (boleh request nama domain)</li>
+          <li>Tampilan keren</li>
+          <li>Bisa run di Github</li>
+          <li>Bisa run di Vercel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="product-grid">
+    <div class="product" data-aos="fade-up">
+      <img src="https://files.catbox.moe/z92zi2.jpg" alt="Panel Pterodactyl">
+      <h3>Website Social Media</h3>
+      <p>Buy Script sosmed di rexxa dengan harga terjangkau.</p>
+      <div class="price">Rp 20.000</div>
+      <div class="actions">
+        <button class="btn-blue" onclick="toggleDetails(this)">Read More</button>
+        <a class="btn-cyan" href="/sosmed" target="_blank">Preview</a>
+        <a class="btn-green" href="https://wa.me/6282130224265?text=Bang+Pengen+Buy+Website+Sosmed" target="_blank">Order Now</a>
+      </div>
+      <div class="details">
+        <ul>
+          <li>Free install / pasang</li>
+          <li>Free rename website</li>
+          <li>Full online permanent</li>
+          <li>Free Domain (boleh request nama domain)</li>
+          <li>Tampilan keren dan elegan</li>
+          <li>Bisa run di Github</li>
+          <li>Bisa run di Vercel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<!-- PRODUK DOMAIN -->
+<div class="product-grid">
+    <div class="product" data-aos="fade-up">
+      <img src="https://files.catbox.moe/d2lvy4.jpeg" alt="Panel Pterodactyl">
+      <h3>Domain .my.id .biz.id .fun .xyz .store</h3>
+      <p>Buy panel domain di rexxa dengan harga terjangkau.</p>
+      <div class="price">Rp 1.000 - 35.000</div>
+      <div class="actions">
+        <button class="btn-blue" onclick="toggleDetails(this)">Read More</button>
+        <a class="btn-green" href="https://wa.me/6282130224265?text=Bang+Mau+Beli+Domain" target="_blank">Order Now</a>
+      </div>
+      <div class="details">
+        <ul>
+          <li>Free deploy ke CloudFlare</li>
+          <li>Free setting protect DdoS</li>
+          <li>Bisa pakai Email sendiri</li>
+          <li>Full akses setting</li>
+          <li>Akun sepenuhnya punya kamu</li>
+          <li>Aktif selama 1 Tahun</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    function toggleDetails(button) {
+      const details = button.closest('.product').querySelector('.details');
+      details.classList.toggle('show');
+      button.textContent = details.classList.contains('show') ? 'Hide' : 'Read More';
+    }
+  </script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
